@@ -2,12 +2,17 @@ package com.ll;
 
 public class Calc {
     public static int run(String expression) {
-        String[] expressionBits = expression.split(" \\+ | - ");
+        String[] expressionBits = expression.split(" ");
 
-        int num1 = Integer.parseInt(expressionBits[0]);
-        int num2 = Integer.parseInt(expressionBits[1]);
+        int result = Integer.parseInt(expressionBits[0]);
 
-        if(expression.contains("+")) return num1 + num2;
-        else return num1 - num2;
+        for(int i = 1; i < expressionBits.length; i += 2){
+            String op = expressionBits[i];
+            int num = Integer.parseInt(expressionBits[i + 1]);
+            if(op.equals("+")) result += num;
+            else result -= num;
+        }
+
+        return result;
     }
 }
