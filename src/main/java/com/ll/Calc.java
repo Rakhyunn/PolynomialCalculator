@@ -9,5 +9,4 @@ public class Calc {
 
         return num1 + num2;
     }
-
 }
